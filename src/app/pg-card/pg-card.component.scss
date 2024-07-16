@@ -1,0 +1,390 @@
+:root{
+    --body-bg : #111016;
+    --card-bg : #24232b;
+    --light-green: #a4ffaf;
+    --slider-thumb: #e6e5ed;
+    --strenth-check-bg: #18171f;
+    --strength-check-range: #facf67;
+    --text-color: #efeef4;
+    --text-fade: #7b7986;
+    --dark-orange: #f64a4a;
+    --light-orange: #fb7c58;
+    --light-yellow: #f8cd65;
+}
+
+.cardWrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 33rem;
+}
+
+.cardWrapper p{
+    color: var(--text-fade);
+    margin-bottom: 1.5rem;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.input-container{
+    width: 100%;
+    height: 5rem;
+    background: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-container #generatedPw{
+    color: var(--text-color);
+    font-size: 30px;
+    font-weight: 500;
+    background: var(--card-bg);
+    border: none;
+}
+
+.copy{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    height: 5rem;
+}
+.copy > p{
+    font-size: 15px;
+    display: none;
+    align-items: center;
+    height: 5rem;
+    margin-bottom: 0;
+    color: var(--light-green);
+    transition: .2s;
+}
+.copy > p.active{
+    display: flex;
+}
+
+.copyIcon {
+    width: 21px;
+    height: 24px;
+}
+.copyIcon path:hover{
+    fill: #ffffff;
+    cursor: pointer;
+    transition: .1s;
+}
+.copyIcon path:active{
+    fill: var(--light-green);
+}
+
+.password-controls {
+    background: var(--card-bg);
+    padding: 2rem 1.5rem;
+    width: 100%;
+}
+
+.password-controls .charlength{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // background: red;
+    height: 2rem;
+}
+
+.password-controls .charlength p:first-child {
+    color: var(--text-color);
+    font-size: 18px;
+}
+.password-controls .charlength p:last-child {
+    color: var(--light-green);
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.password-controls #char-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    margin: 1rem 0 1.5rem 0;
+    background: var(--body-bg)
+}
+
+////////////////////FOR MOZILLA //////////////////////
+.password-controls #char-range::-moz-range-progress {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    background: var(--light-green);
+}
+.password-controls #char-range::-moz-range-track {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0px;
+    background: transprent;
+}
+.password-controls #char-range::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--slider-thumb);
+    background: var(--slider-thumb);
+    cursor: pointer;
+}
+.password-controls #char-range::-moz-range-thumb:hover{
+    background: var(--body-bg);
+    border: 2px solid var(--light-green);
+
+}
+
+////////////////////FOR CHROME //////////////////////
+.password-controls #char-range::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 0px;
+    background: red;
+}
+.password-controls #char-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: var(--slider-thumb);
+    cursor: pointer;
+    position: relative;
+    top: -.6rem;
+}
+.password-controls #char-range::-webkit-slider-thumb:hover {
+    border:2px solid var(--light-green);
+    background: var(--body-bg);
+}
+
+
+.password-controls #char-range::-webkit-slider-runnable-track {
+    background: var(--light-green);
+}
+.password-controls #char-range::-moz-range-track {
+    background: var(--light-green);
+}
+
+////////////// CUSTOM CHECKBOXEX //////////////
+.password-controls .criterias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.password-controls .criterias .firstcheck,
+.password-controls .criterias .secondcheck,
+.password-controls .criterias .thirdcheck,
+.password-controls .criterias .fourthcheck {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.password-controls .criterias .firstcheck input,
+.password-controls .criterias .secondcheck input,
+.password-controls .criterias .thirdcheck input,
+.password-controls .criterias .fourthcheck input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--strenth-check-bg);
+    border: 2px solid var(--light-green);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    // accent-color: var(--light-green);
+}
+
+.password-controls .criterias .firstcheck input::after,
+.password-controls .criterias .secondcheck input::after,
+.password-controls .criterias .thirdcheck input::after,
+.password-controls .criterias .fourthcheck input::after {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f00c";
+    color: var(--body-bg);
+    display: none;
+}
+
+.password-controls .criterias .firstcheck input:hover,
+.password-controls .criterias .secondcheck input:hover,
+.password-controls .criterias .thirdcheck input:hover,
+.password-controls .criterias .fourthcheck input:hover {
+    background: var(--card-bg);
+}
+
+.password-controls .criterias .firstcheck input:checked,
+.password-controls .criterias .secondcheck input:checked,
+.password-controls .criterias .thirdcheck input:checked,
+.password-controls .criterias .fourthcheck input:checked {
+    background: var(--light-green);
+}
+
+.password-controls .criterias .firstcheck input:checked::after,
+.password-controls .criterias .secondcheck input:checked::after,
+.password-controls .criterias .thirdcheck input:checked::after,
+.password-controls .criterias .fourthcheck input:checked::after {
+    display: block;
+}
+
+.password-controls .criterias .firstcheck label,
+.password-controls .criterias .secondcheck label,
+.password-controls .criterias .thirdcheck label,
+.password-controls .criterias .fourthcheck label {
+    font-size: 18.5px;
+}
+
+.password-controls .pwStrengthCheck {
+    width: 100%;
+    height: 4.5rem;
+    background: var(--strenth-check-bg);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 0 1.5rem;
+}
+
+.password-controls .pwStrengthCheck > p{
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+.password-controls .pwStrengthCheck .strChecker{
+    display: flex;
+    // width: 32%;
+    // background: red;
+    height: 4.5rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.password-controls .pwStrengthCheck .strChecker > p{
+    font-size: 23px;
+    font-weight: 500;
+    color: var(--text-color);
+    height: 3rem;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.password-controls .pwStrengthCheck .strChecker .strengthbars{
+    display: flex;
+    gap: 7px;
+}
+
+.password-controls .pwStrengthCheck .strChecker .strengthbars .bar{
+    width: 10px;
+    height: 28px;
+    border: 2px solid var(--text-color);
+}
+
+.password-controls button {
+    width: 100%;
+    height: 4rem;
+    background: var(--light-green);
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 500;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    cursor: pointer;
+    border: 2px solid var(--light-green);
+}
+.password-controls svg {
+    width: 11px;
+    height: 12x;
+}
+
+.password-controls button:hover{
+    color: var(--light-green);
+    background: var(--strenth-check-bg);
+}
+
+
+@media only screen and (max-width: 533px) {
+    .cardWrapper {
+        width: 22rem;
+    }
+
+    .cardWrapper p{
+        font-size: 17px;
+    }
+
+    .input-container #generatedPw {
+        width: 80%;
+    }
+
+    .copyIcon {
+        width: 17.5px;
+        height: 20px;
+    }
+
+    .password-controls .charlength p:first-child {
+        font-size: 15px;
+    }
+    .password-controls .charlength p:last-child {
+        font-size: 24px;
+    }
+
+    .password-controls .criterias {
+        gap: 14px;
+    }
+
+    .password-controls .criterias .firstcheck input,
+    .password-controls .criterias .secondcheck input,
+    .password-controls .criterias .thirdcheck input,
+    .password-controls .criterias .fourthcheck input {
+        width: 18px;
+        height: 18px;
+    }
+
+    .password-controls .criterias .firstcheck label,
+    .password-controls .criterias .secondcheck label,
+    .password-controls .criterias .thirdcheck label,
+    .password-controls .criterias .fourthcheck label {
+        font-size: 15.5px;
+    }
+
+    .password-controls .pwStrengthCheck {
+        height: 3.5rem;
+    }
+
+    .password-controls .pwStrengthCheck > p{
+        font-size: 16px;
+        height: 3.5rem;
+    }
+
+    .password-controls .pwStrengthCheck .strChecker{
+        height: 3.5rem;
+        width: fit-content;
+        gap: 3px;
+    }
+
+    .password-controls .pwStrengthCheck .strChecker > p{
+        font-size: 17px;
+    }
+
+    .password-controls button {
+        height: 3.5rem;
+        font-size: 15px;
+    }
+}
